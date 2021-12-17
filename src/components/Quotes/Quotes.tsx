@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
+import QuoteItem from "./QuoteItem";
+import classes from "./Quotes.module.css";
+import Card from "../UI/Card";
 import axios from "axios";
 
 const Quotes = () => {
+	const rapidKey = process.env.REACT_APP_KEY as string;
+
 	const [quotes, setQuotes] = useState([]);
 
 	useEffect(() => {
-		const rapidKey = process.env.REACT_APP_KEY as string;
 		const getQuotes = async () => {
 			const res = await axios.get(
 				"https://demotivational-quotes.p.rapidapi.com/api/quotes/all",
@@ -18,11 +22,25 @@ const Quotes = () => {
 			);
 			console.log(res);
 			setQuotes(res.data);
+			try {
+			} catch (err) {
+				console.log(err);
+			}
 		};
 		getQuotes();
 	}, []);
 
-	return <h1>Quote quote quote</h1>;
+	const quoteList = quotes.map((quote) => {
+		return <QuoteItem quote={quote} />;
+	});
+
+	return (
+		<section className={classes.quotes}>
+			<Card>
+				<ul>{quoteList}</ul>
+			</Card>
+		</section>
+	);
 };
 
 export default Quotes;

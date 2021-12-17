@@ -1,12 +1,14 @@
 import { Fragment } from "react";
 import Header from "./components/UI/Header";
+import classes from "./App.module.css";
 
-function App() {
+const App = () => {
 	return (
 		<Fragment>
 			<Header />
+			<div className={classes.container}></div>
 		</Fragment>
 	);
-}
+};
 
 export default App;

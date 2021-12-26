@@ -20,8 +20,8 @@ const Quotes = () => {
 					},
 				}
 			);
-			console.log(res);
-			setQuotes(res.data.slice(0, 4));
+			let shuffled = res.data.sort(() => Math.random() - 0.5);
+			setQuotes(shuffled.slice(0, 4));
 			try {
 			} catch (err) {
 				console.log(err);
@@ -30,9 +30,11 @@ const Quotes = () => {
 		getQuotes();
 	}, []);
 
-	const quoteList = quotes.map((quote) => {
-		return <QuoteItem quote={quote} />;
+	const quoteList = quotes.map((quote, index) => {
+		return <QuoteItem quote={quote} key={index} />;
 	});
+
+	console.log(quotes);
 
 	return (
 		<section className={classes.quotes}>

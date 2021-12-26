@@ -21,7 +21,7 @@ const Quotes = () => {
 				}
 			);
 			console.log(res);
-			setQuotes(res.data);
+			setQuotes(res.data.slice(0, 4));
 			try {
 			} catch (err) {
 				console.log(err);

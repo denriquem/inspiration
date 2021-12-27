@@ -28,14 +28,12 @@ const Quotes = () => {
 		setFilteredQuotes(newFilter);
 	};
 
-	console.log(quotes);
-	console.log(filteredQuotes);
 	let data;
 
-	if (filteredQuotes == []) {
-		data = quotes;
-	} else {
+	if (filteredQuotes.length !== 0) {
 		data = filteredQuotes;
+	} else {
+		data = quotes;
 	}
 
 	const quoteList = data.slice(0, 4).map((quote, index) => {

@@ -14,7 +14,7 @@ const getQuotes = async (setState: any) => {
 			}
 		);
 		let shuffled = res.data.sort(() => Math.random() - 0.5);
-		setState(shuffled.slice(0, 4));
+		setState(shuffled);
 	} catch (err) {
 		console.log(err);
 	}

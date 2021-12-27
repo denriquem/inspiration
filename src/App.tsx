@@ -3,6 +3,7 @@ import Header from "./components/UI/Header";
 import classes from "./App.module.css";
 import Quotes from "./components/Quotes/Quotes";
 import QuoteSummary from "./components/UI/QuoteSummary";
+import SearchBar from "./components/SearchBar";
 
 const App = () => {
 	return (

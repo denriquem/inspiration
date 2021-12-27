@@ -10,3 +10,14 @@
 	margin: 0;
 	padding: 0;
 }
+
+.shuffleButton {
+	border: 2px solid black;
+	background-color: #fff;
+	color: black;
+	font-size: 16px;
+	height: 2.5em;
+	width: 2.5em;
+	border-radius: 999px;
+	float: right;
+}

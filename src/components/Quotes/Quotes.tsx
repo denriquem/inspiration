@@ -4,6 +4,7 @@ import classes from "./Quotes.module.css";
 import Card from "../UI/Card";
 import getQuotes from "../apiCalls/getQuotes";
 import { Fragment } from "react";
+import SearchBar from "../UI/SearchBar";
 
 const Quotes = () => {
 	const [quotes, setQuotes] = useState([]);
@@ -17,8 +18,7 @@ const Quotes = () => {
 		getQuotes(setQuotes);
 	};
 
-	const handleFilter = (e: any) => {
-		const searchWord = e.target.value.toLowerCase();
+	const onHandleFilter = (searchWord: string) => {
 		const newFilter = quotes.filter((item: any) => {
 			return (
 				item.quote.toLowerCase().includes(searchWord) ||
@@ -42,16 +42,7 @@ const Quotes = () => {
 
 	return (
 		<Fragment>
-			<div className="search">
-				<div className="searchInputs">
-					<input
-						type="text"
-						placeholder="search for quotes..."
-						onChange={handleFilter}
-					/>
-					<div className="searchItem"></div>
-				</div>
-			</div>
+			<SearchBar handleFilter={onHandleFilter} />
 			<section className={classes.quotes}>
 				<button className={classes.shuffleButton} onClick={shuffleClickHandler}>
 					<i className="fas fa-plus-circle"></i>
